@@ -1,0 +1,8 @@
+#+title: container
+
+An isolated virtual computer that holds only what's necessary to run the application you've set up the container.  Let's you host mulstiple different types of applications on a machine, where each one isn't aware of the others.  IT also lets you share an entire application, that will always run the same way, regardless of a person's local environment.  The only thing that'd need to be shared between computers is some underlying architecture (e.g. running intel processor vs. arm processors).
+
+[[file:20200819083355-docker.org][docker]] is a good example of container software.
+
+----
+- tags :: [[file:20200819083111-glossary.org][glossary]]

@@ -1,0 +1,6 @@
+#+title: replicationController
+
+Resource to manage a desired amount of a type of pod, e.g. to have 3 guestbook frontend pods always available.  If something were to happen to a pod, or the node that the pod is on, the controller would work to replace it immediately.  It has since been replaced by  [[file:20200911162406-replicationset.org][replicationSet]]
+
+----
+- tags :: [[file:20200819083111-glossary.org][glossary]]  [[file:20200818114909-k8s.org][k8s]]

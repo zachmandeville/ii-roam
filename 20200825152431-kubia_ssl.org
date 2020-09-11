@@ -1,0 +1,35 @@
+#+title: kubia-ssl
+
+A manifest for running kubia with a [[file:20200825150435-sidecar_container.org][sidecar container]].
+Tangled into our learning folder
+
+#+NAME: kubia-ssl manifest
+#+BEGIN_SRC yaml :tangle ~/Projects/learning/k8s/manifests/kubia-ssl.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-ssl
+spec:
+  containers:
+  - name: kubia
+    image: luksa/kubia:1.0
+    ports:
+    - name: http
+      containerPort: 8080
+  - name: envoy
+    image: luksa/kubia-ssl-proxy:1.0
+    ports:
+    - name: https
+      containerPort: 8443
+    - name: admin
+      containerPort: 9901
+#+END_SRC
+
+You can then apply it with
+
+#+BEGIN_SRC shell
+kubectl apply -f ~/Projects/learning/k8s/manifests/kubia-ssl.yaml
+#+END_SRC
+
+#+RESULTS:
+: pod/kubia-ssl created

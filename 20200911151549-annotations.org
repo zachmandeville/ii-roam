@@ -1,0 +1,28 @@
+#+title: annotations
+
+
+In addition to labels, pods and other objects can also contain annotations. Annotations
+are also key-value pairs, so in essence, they’re similar to labels, but they aren’t meant to
+hold identifying information. They can’t be used to group objects the way labels can.
+While objects can be selected through label selectors, there’s no such thing as an
+annotation selector.
+On the other hand, annotations can hold much larger pieces of information and
+are primarily meant to be used by tools. Certain annotations are automatically added
+to objects by Kubernetes, but others are added by users manually.
+
+Annotations are also commonly used when introducing new features to Kuberne-
+tes. Usually, alpha and beta versions of new features don’t introduce any new fields to
+API objects. Annotations are used instead of fields, and then once the required API
+changes have become clear and been agreed upon by the Kubernetes developers, new
+fields are introduced and the related annotations deprecated.
+
+A great use of annotations is adding descriptions for each pod or other API object,
+so that everyone using the cluster can quickly look up information about each individ-
+ual object. For example, an annotation used to specify the name of the person who
+created the object can make collaboration between everyone workuing on the cluster much easier
+
+- from [[file:20200825150724-k8s_in_action.org][k8s in action]]
+
+  when adding annotation, good to follow a convention of ~mycompany/key=value~ to avoid name collisions.
+----
+- tags ::  [[file:20200819083111-glossary.org][glossary]]  [[file:20200818114909-k8s.org][k8s]]

@@ -1,0 +1,2 @@
+#+title: something.org
+[[file:20200817160040-fun.org][fun ]]cool

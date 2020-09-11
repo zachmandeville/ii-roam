@@ -1,0 +1,6 @@
+#+title: thinking of nodes
+
+You shouldn't think in terms of individual nodes.  Always think about logical groups of nodes that satisfy certain criteria specified through label selectors.
+
+----
+- tags :: [[file:20200825150724-k8s_in_action.org][k8s in action]]  [[file:20200911151404-quotes.org][quotes]]

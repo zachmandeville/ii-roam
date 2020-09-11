@@ -1,0 +1,3 @@
+#+title: service
+
+A consistent way to reach a specified pod in a cluster...will often be used when you want this pod reachable by the outside world.  For example, you can create a  [[file:20200819085045-loadbalancer.org][loadBalancer]] service for your pod, for example, which will set up an external ip so that you can access this application on the big old web

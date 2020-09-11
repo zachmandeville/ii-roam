@@ -1,0 +1,12 @@
+#+title: Anatomy of a k8s object
+
+- type metadata ::  info about the type of object the k8s manifest describes.  Object type, group it belongs to, api version.
+
+- object metadata :: basic info about the object itself: name, time of creation, owner.  These fields are the ssame across object types.
+
+- spec :: the desired state of the object.  Will differ between types.  Folr pods, this is the part that specifies the containers, storage volumes, replcas etc.
+
+- status :: actual current state of the object.  For a pod, its condition and the status of each of its containers, its pi, the node its running on, etc.
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]]

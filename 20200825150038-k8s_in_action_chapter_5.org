@@ -1,0 +1,14 @@
+#+title: k8s in action: Chapter 5
+
+This chapter dug deep into pods, and setting up multiple containers to run in the same pod.
+
+In general, you want to group containers in a pod together when they cannot be meaningfully separated, but act as complements to each other.  For example: if you are making a web app with a front end and a back end, even though they are shared domains/concerns, they should be separate pods.  They will be talking to each other over the network, and there's no reason why they'd need to be on the same node or in the same pod.  Though they are related, they are separate, and keeping them in diff. pods allows for [[file:20200818114909-k8s.org][k8s]]  to manage its resources better.
+
+If the frontend is built to handle http, but you want to extend it with https, then it'd make sense to add a [[file:20200825150435-sidecar_container.org][sidecar container]] to this pod which acts as an https proxy for the frontend.  In this case, they are intertangled, and you want pings to this pod's ip to go t hrough the proxy first.
+
+We also learned about how to describe the deployment you want as a yaml file (called a [[file:20200825150556-manifest.org][manifest]]) and deploy to kubernetes from this file (essentially ~kubectl apply -f file.yaml~)
+
+Lastly, we learned how to take down pods.  In the course of the chapter there were several kubia pods put up, one with stdin, one with https, our ol' classic.  So we went through some ~kubectl delete~ commands to show how easy it is to delete them!
+
+----
+- tags :: [[file:20200819083601-pods.org][pods]]  [[file:20200819083355-docker.org][docker]]  [[file:20200818114909-k8s.org][k8s]]  [[file:20200825150724-k8s_in_action.org][k8s in action]]

@@ -1,0 +1,83 @@
+#+title: testing local postgres
+
+
+* Getting a list from our db
+
+#+BEGIN_SRC sql-mode :results output
+\d
+#+END_SRC
+
+#+RESULTS:
+#+begin_SRC example
+\d
+                 List of relations
+ Schema |        Name        |   Type   |  Owner
+--------+--------------------+----------+----------
+ public | audit_event        | table    | postgres
+ public | audit_event_id_seq | sequence | postgres
+ public | audit_event_test   | view     | postgres
+ public | endpoint_coverage  | view     | postgres
+ public | open_api           | table    | postgres
+ public | test               | table    | postgres
+(6 rows)
+
+#+end_SRC
+* New Endpoints
+
+#+BEGIN_SRC sql-mode
+select *
+from conformance.new_endpoint
+where release = '1.19.0';
+#+END_SRC
+
+#+RESULTS:
+#+begin_SRC example
+select *
+from conformance.new_endpoint
+where release = '1.19.0';
+                        endpoint                         | release | tested
+---------------------------------------------------------+---------+--------
+ createCertificatesV1CertificateSigningRequest           | 1.19.0  | t
+ createEventsV1NamespacedEvent                           | 1.19.0  | t
+ createNetworkingV1IngressClass                          | 1.19.0  | t
+ createNetworkingV1NamespacedIngress                     | 1.19.0  | t
+ deleteCertificatesV1CertificateSigningRequest           | 1.19.0  | t
+ deleteCertificatesV1CollectionCertificateSigningRequest | 1.19.0  | t
+ deleteEventsV1CollectionNamespacedEvent                 | 1.19.0  | t
+ deleteEventsV1NamespacedEvent                           | 1.19.0  | t
+ deleteNetworkingV1CollectionIngressClass                | 1.19.0  | t
+ deleteNetworkingV1CollectionNamespacedIngress           | 1.19.0  | t
+ deleteNetworkingV1IngressClass                          | 1.19.0  | t
+ deleteNetworkingV1NamespacedIngress                     | 1.19.0  | t
+ getCertificatesV1APIResources                           | 1.19.0  | t
+ getEventsV1APIResources                                 | 1.19.0  | t
+ listCertificatesV1CertificateSigningRequest             | 1.19.0  | t
+ listEventsV1EventForAllNamespaces                       | 1.19.0  | t
+ listEventsV1NamespacedEvent                             | 1.19.0  | t
+ listNetworkingV1IngressClass                            | 1.19.0  | t
+ listNetworkingV1IngressForAllNamespaces                 | 1.19.0  | t
+ listNetworkingV1NamespacedIngress                       | 1.19.0  | t
+ patchCertificatesV1CertificateSigningRequest            | 1.19.0  | t
+ patchCertificatesV1CertificateSigningRequestApproval    | 1.19.0  | t
+ patchCertificatesV1CertificateSigningRequestStatus      | 1.19.0  | t
+ patchEventsV1NamespacedEvent                            | 1.19.0  | t
+ patchNetworkingV1IngressClass                           | 1.19.0  | t
+ patchNetworkingV1NamespacedIngress                      | 1.19.0  | t
+ patchNetworkingV1NamespacedIngressStatus                | 1.19.0  | t
+ readCertificatesV1CertificateSigningRequest             | 1.19.0  | t
+ readCertificatesV1CertificateSigningRequestApproval     | 1.19.0  | t
+ readCertificatesV1CertificateSigningRequestStatus       | 1.19.0  | t
+ readEventsV1NamespacedEvent                             | 1.19.0  | t
+ readNetworkingV1IngressClass                            | 1.19.0  | t
+ readNetworkingV1NamespacedIngress                       | 1.19.0  | t
+ readNetworkingV1NamespacedIngressStatus                 | 1.19.0  | t
+ replaceCertificatesV1CertificateSigningRequest          | 1.19.0  | t
+ replaceCertificatesV1CertificateSigningRequestApproval  | 1.19.0  | t
+ replaceCertificatesV1CertificateSigningRequestStatus    | 1.19.0  | t
+ replaceEventsV1NamespacedEvent                          | 1.19.0  | t
+ replaceNetworkingV1IngressClass                         | 1.19.0  | t
+ replaceNetworkingV1NamespacedIngress                    | 1.19.0  | t
+ replaceNetworkingV1NamespacedIngressStatus              | 1.19.0  | t
+(41 rows)
+
+#+end_SRC

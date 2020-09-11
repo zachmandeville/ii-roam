@@ -1,0 +1,14 @@
+#+title: field selectors
+
+The API provides a way to filter objects through a mechanism called field selectors. Only objects where the specified field matches the specified selector value are returned.
+
+* Example
+looking only at warning events
+
+#+BEGIN_SRC shell
+kubectl get events --field-selector type=Warning
+#+END_SRC
+
+----
+
+- tags ::  [[file:20200818114909-k8s.org][k8s]] [[file:20200819083111-glossary.org][glossary]]

@@ -1,0 +1,10 @@
+#+title: k8s labels
+
+- Labels can be added to any K8s object, including nodes.
+- They are used to organize these objects, and targeting a subset of your resources for whatever yr needs:
+    - finding pods in kubectl
+    - deleting or patching en masse
+    - a method for searching or filtering with kubectl
+
+---
+- tags :: [[file:20200825150724-k8s_in_action.org][k8s in action]]   [[file:20200818114909-k8s.org][k8s]]

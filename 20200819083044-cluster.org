@@ -1,0 +1,5 @@
+#+title: cluster
+A virtual cluster of nodes.  This ties to the machines being used, but they can be a single raspberry pi or beefy machines all in one datacenter, or a cluster made up of machines in different data centers plus my humble raspberry pi.
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]] [[file:20200819083111-glossary.org][glossary]]

@@ -1,0 +1,8 @@
+#+title: scaling applications
+
+~kubectl scale deployment kubia --replicas=3~
+
+This would change the requirements of our cluster to say that three pods of the kubia deployment must always be available (that's replicas 3).  Kubernetes would then figure out how to do that.
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]]

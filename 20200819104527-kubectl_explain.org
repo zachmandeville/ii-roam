@@ -1,0 +1,24 @@
+#+title: kubectl explain
+
+
+This command works to explain any part of the kubernetes api, similar to emacs describe variable.
+
+You can even do object mapping with it...like if you wanted to get an explanation of [[file:20200819083601-pods.org][pod]] , you could say
+
+#+BEGIN_SRC shell
+kubectl explain pod
+#+END_SRC
+
+If you wanted explanation of the spec field in a pod you could type, instead
+
+#+BEGIN_SRC shell
+kubectl explain pod.spec
+#+END_SRC
+
+And if you wanted to know the restartPolicy field in the pod.spec it is
+
+#+BEGIN_SRC shell
+kubectl explain pod.spec.restartPolicy
+#+END_SRC
+
+and on and on.

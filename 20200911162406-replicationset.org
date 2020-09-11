@@ -1,0 +1,8 @@
+#+title: replicationSet
+
+replaced [[file:20200911162428-replicationcontroller.org][replicationController]] , basically the same (manages a set of pod replicas, e.g. if you say you want 3 of a pod to make sure there's always 3 available).  The difference is the method in which you can select which pods you want this resource to manage the replication of, you have far more expressive capabilities...
+
+[[file:20200911162428-replicationcontroller.org][replicationController]] is going to be deprecated (if not already), but you may still find it in older deployments
+
+----
+- tags ::  [[file:20200818114909-k8s.org][k8s]]  [[file:20200819083111-glossary.org][glossary]]

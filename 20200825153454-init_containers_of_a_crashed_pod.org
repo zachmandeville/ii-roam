@@ -1,0 +1,6 @@
+#+title: init containers of a crashed pod
+
+if init containers are defined in the pod and one of the pod's regular containers is restarted, the init containers /are not run again/.
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]]  [[file:20200818114956-til.org][til]]

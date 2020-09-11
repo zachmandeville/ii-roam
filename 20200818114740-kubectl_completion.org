@@ -1,0 +1,19 @@
+#+title: kubectl completion
+
+You can put in tab completion with kubectl which is actually mad handy.
+
+I've setup my aws pair box with:
+
+~alias k=kubectl~
+
+and then
+
+~source <(kubectl completion bash | sed s/kubectl/k/g)~
+
+this lets me do stuff like
+
+~k describe pod <TAB>~ and see the available pod ids...no more copy and paste!
+
+----
+
+tags :  [[file:20200818114909-k8s.org][k8s]]  [[file:20200818114956-til.org][til]]

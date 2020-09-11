@@ -1,0 +1,7 @@
+#+title: pods
+
+The smallest workable unit in [[file:20200818114909-k8s.org][kubernetes]].   A pod is a set of closely linked containers...it could just be one contaioner, or a few of them if they need to be using some shared resources.  Every pod will have its own internal ip address for communicating with other pods, and can have an external ip address for communicating with the world
+
+----
+
+- tags :: [[file:20200818114909-k8s.org][k8s]] [[file:20200819083111-glossary.org][glossary]]

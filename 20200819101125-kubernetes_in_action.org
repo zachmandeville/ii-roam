@@ -1,0 +1,6 @@
+#+title: Kubernetes in Action
+
+https://livebook.manning.com/book/kubernetes-in-action-second-edition/chapter-4/v-4/14
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]]

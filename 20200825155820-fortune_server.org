@@ -1,0 +1,36 @@
+#+title: fortune server
+
+Making a web server that displays a fortune, to better understand lifecycle hooks.
+
+In this case, we'll be using an nginx image and then installing fortune on it as part of our deployment, instead of adjusting the container image itself.
+
+It's a contrived example, but useful!
+
+#+NAME: Fortune Nginx server
+#+BEGIN_SRC yaml :tangle ~/Projects/learning/k8s/manifests/fortune-server.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-poststart
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    lifecycle:
+      postStart:
+        exec:
+          command:
+          - sh
+          - -c
+          - "apk add fortune && fortune > /usr/share/nginx/html/quote"
+    ports:
+    - name: http
+      containerPort: 80
+#+END_SRC
+
+#+BEGIN_SRC shell
+kubectl apply -f ~/Projects/learning/k8s/manifests/fortune-server.yaml
+#+END_SRC
+
+#+RESULTS:
+: pod/fortune-poststart created

@@ -1,0 +1,6 @@
+#+title: loadBalancer
+
+A method of taking incoming traffic for a service and distributing it across the pods of that cluster, to ensure the most reliable way of running the app.
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]] [[file:20200819083111-glossary.org][glossary]]

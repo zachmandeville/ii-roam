@@ -1,0 +1,6 @@
+#+title: kubectl and jq
+
+The jq tool is very handy if you want to see only a part of the object’s structure. For example, to display the node’s status conditions, you can run ~kubectl get node <name> -o json | jq .status.conditions~. The equivalent tool for YAML is yq.
+
+----
+- tips :: [[file:20200818114909-k8s.org][k8s]]  [[file:20200818114956-til.org][til]]

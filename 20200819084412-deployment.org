@@ -1,0 +1,8 @@
+#+title: deployment
+
+A description of an app on a [[file:20200819083044-cluster.org][cluster]].  When you add a deployment, the cluster will do what it's needed to change its state so that the deployment and its desired settings are part of the cluster.
+
+e.g. if you say a deployment is made up the application 'kubia-container' and there should be at least 3 replicas of it...then kubernetes will make 3[[file:20200819083601-pods.org][ pods]] , each containing the kubia container, and schedule them to be on whatever [[file:20200819083141-node.org][nodes]] work the best for it at that time (the pods could all be on the same node, or on different nodes...or they could die for some reason and be reborn on a new node, as long as there are three of them all the time, as specified in the deployment).
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]]  [[file:20200819083111-glossary.org][glossary]]

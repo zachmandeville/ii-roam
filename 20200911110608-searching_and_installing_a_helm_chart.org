@@ -1,0 +1,41 @@
+#+title: searching and installing a helm chart
+
+I had a bit of confusion with searching and installing charts as detailed in  [[https://helm.sh/docs/intro/using_helm/]]  but think I can clarify it here.
+
+let's say I'm looking to install wordpress to the cluster.  I can search for helm packages like so
+
+#+BEGIN_SRC sh
+helm search hub wordpress
+#+END_SRC
+
+#+RESULTS:
+| URL                                                | CHART VERSION | APP VERSION | DESCRIPTION                                        |
+| https://hub.helm.sh/charts/bitnami/wordpress       | 9.5.4         | 5.5.1       | Web publishing platform for building blogs and ... |
+| https://hub.helm.sh/charts/presslabs/wordpress-... | 0.10.5        | 0.10.5      | Presslabs WordPress Operator Helm Chart            |
+| https://hub.helm.sh/charts/presslabs/wordpress-... | v0.10.3       | v0.10.3     | A Helm chart for deploying a WordPress site on ... |
+| https://hub.helm.sh/charts/fasterbytes/wordpres... | v0.8.4        | v0.8.4      | FasterBytes WordPress Operator Helm Chart          |
+| https://hub.helm.sh/charts/fasterbytes/wordpres... | v0.10.2       | v0.10.2     | A Helm chart for deploying a WordPress site on ... |
+
+I like the bitnami one, it's chart is on v.9 and so has been around a while and bitnami is a major repo within helm it seems.  So if I wanted to install this, I thought I'd just do
+
+#+BEGIN_SRC sh
+helm repo add https://hub.helm.sh/charts/bitnami
+#+END_SRC
+
+to add the bitnami repo to my local repos, and then install wordpress.  This gives an error though of it not being a valid repo.
+
+The answer is that these url's are for you to visit on the web to get instructions on how to install it.  So if i visit that above link, I'll see the repo is actually ~https://charts.bitnami.com/bitnami~.  When I add that with
+
+#+BEGIN_SRC
+helm repo add bitnami https://charts.bitnami.com/bitnami
+#+END_SRC
+
+I can then install wordpress with
+
+#+BEGIN_SRC
+helm install bitnami/wordpress --version 9.5.4
+#+END_SRC
+
+
+----
+- tags :: [[file:20200911100603-helm.org][helm]]  [[file:20200818114956-til.org][til]]  [[file:20200818114909-k8s.org][k8s]]

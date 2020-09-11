@@ -1,0 +1,15 @@
+#+title: k8s-in-action: Chapter 3
+
+
+* Summary
+In this chapter I used the docker image created in chapter 2 and deployed it to the aws cluster.
+
+I also better understood some of the parts of a cluster:
+- [[file:20200819083044-cluster.org][cluster]]
+- [[file:20200819083601-pods.org][pods]]
+- [[file:20200819083327-container.org][container]]
+- [[file:20200819083141-node.org][nodes]]
+
+To get the app up and running, we use kubectl to create a [[file:20200819084412-deployment.org][deployment]] , which describes exactly how we want the app running in the cluster.  the Cluster will use this deployment to create a pod (or pods) for the deployment and schedule them to be on the cluster.
+
+To expose the app to the grander world, I set up a [[file:20200819084905-service.org][service]] specifically a [[file:20200819085045-loadbalancer.org][loadBalancer]] service, which assigned it an external ip.  Because I'm using the eks cluster,  this was pretty simple to do and eks handled the creation of the ip for me.  It would likely not be this easy on a self-managed cluster.

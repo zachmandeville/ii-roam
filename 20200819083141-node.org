@@ -1,0 +1,6 @@
+#+title: nodes
+
+One of the machines in a cluster.  Nodes can have different types of memory, processing, underlying architecture etc.  A node will just be running docker and the OS, all the other application software needed will be isolated to within [[file:20200819083327-container.org][containers]] within [[file:20200819083601-pods.org][pods]].
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]] [[file:20200819083111-glossary.org][glossary]]

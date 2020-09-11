@@ -1,0 +1,18 @@
+#+title: understanding architectural style of the API
+
+
+
+From [[file:20200819101125-kubernetes_in_action.org][Kubernetes in Action]]
+
+The Kubernetes API is an HTTP-based RESTful API where the state is represented by resources on which you perform CRUD operations (Create, Read, Update, Delete) using standard HTTP methods such as POST, GET, PUT/PATCH or DELETE.
+Definition
+
+REST is Representational State Transfer, an architectural style for implementing interoperability between computer systems via web services using stateless operations, described by Roy Thomas Fielding in his doctoral dissertation. To learn more, read the dissertation at https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm.
+
+It is these resources (or objects) that represent the configuration of the cluster. Cluster administrators and engineers who deploy applications into the cluster therefore influence the configuration by manipulating these objects.
+
+In the Kubernetes community, the terms “resource” and “object” are used interchangeably, but there are subtle differences that warrant an explanation.
+
+
+---
+- tags :: [[file:20200818114909-k8s.org][k8s]]

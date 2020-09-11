@@ -1,0 +1,45 @@
+#+title: kubia-liveness.yaml
+
+A pod that has a liveness probe in it, in this case an http one.
+
+#+NAME: kubia-liveness manifest
+#+BEGIN_SRC yaml :tangle ~/Projects/learning/k8s/manifests/kubia-liveness.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-liveness
+spec:
+  containers:
+  - name: kubia
+    image: luksa/kubia:1.0
+    ports:
+    - name: http
+      containerPort: 8080
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8080
+  - name: envoy
+    image: luksa/kubia-ssl-proxy:1.0
+    ports:
+    - name: https
+      containerPort: 8443
+    - name: admin
+      containerPort: 9901
+    livenessProbe:
+      httpGet:
+        path: /ready
+        port: admin
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      timeoutSeconds: 2
+      failureThreshold: 3
+#+END_SRC
+
+
+#+BEGIN_SRC shell
+kubectl apply -f ~/Projects/learning/k8s/manifests/kubia-liveness.yaml
+#+END_SRC
+
+#+RESULTS:
+: pod/kubia-liveness created

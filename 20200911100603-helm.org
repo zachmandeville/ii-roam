@@ -1,0 +1,7 @@
+#+title: helm
+
+Package Manager for [[file:20200818114909-k8s.org][k8s]]
+
+Instead of downloading and installing a piece of software, you're downloading and deploying the entire computer configuration and setup for an orchestration of software.
+
+[[https://helm.sh][homepage]]

@@ -1,0 +1,9 @@
+#+title: single quotes in label selector
+
+When using a label selector, like:
+: kubectl get po -l '!env'
+(which is saying "list pods that do not have an env label")
+you wanna make sure ~!env~ is in single quotes.  In double quotes, bash will try to execute the exclamation points
+
+---
+- tags :: [[file:20200818114956-til.org][til]]  [[file:20200818114909-k8s.org][k8s]]

@@ -1,0 +1,7 @@
+#+title: into to helm video
+
+Talk from Matt Farina and Josh Dolitsky
+https://www.youtube.com/watch?v=Zzwq9FmZdsU
+
+----
+- tags :: [[file:20200911100603-helm.org][helm]]  [[file:20200818114909-k8s.org][k8s]]  [[file:20200911100910-video.org][video]]

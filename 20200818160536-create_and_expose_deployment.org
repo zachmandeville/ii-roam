@@ -1,0 +1,10 @@
+#+title: create and expose deployment
+
+
+~kubectl create deployment~ creates a Deployment object.
+~kubectl expose deployment~ creates a Service object.
+
+The service means that we want to expose our deployment to the larger world, for example with a load balancer which will give it an external ip
+
+---
+- tags :: [[file:20200818114909-k8s.org][k8s]] [[file:20200818114956-til.org][til]]

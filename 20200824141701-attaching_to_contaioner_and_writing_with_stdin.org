@@ -1,0 +1,81 @@
+#+title: attaching to contaioner and writing with stdin
+
+We can attach to a contaioner with the attach command
+(in this case, I have kubia already up and running)
+
+#+BEGIN_SRC shell
+kubectl attach kubia
+#+END_SRC
+
+
+* with stdin
+
+To read form stdin, we need our contianer app set up to take from stdin.  Our kubia contaioner does not, but there's another one ready for us to use that DOES
+
+I'll write up the manifest now.
+
+#+NAME: kubia-stdin manifest
+#+BEGIN_SRC yaml :tangle ~/Projects/learning/k8s/manifests/kubia-stdin.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-stdin
+spec:
+  containers:
+  - name: kubia
+    image: luksa/kubia:1.0-stdin
+    stdin: true
+    ports:
+    - containerPort: 8080
+#+END_SRC
+
+Notice that we are explicitly setting stdin to be true in this manifest.
+
+Now we can apply it
+
+#+BEGIN_SRC shell
+kubectl apply -f ~/Projects/learning/k8s/manifests/kubia-stdin.yaml
+#+END_SRC
+
+#+RESULTS:
+: pod/kubia-stdin created
+
+* testing out the stdin
+First we wanna start with a nice port-forward (handled in external shell)
+
+#+BEGIN_SRC shell
+kubectl port-forward kubia-stdin 8888:8080
+#+END_SRC
+
+Here we are assigning the local 8888 port to be forwarded as the app's 8080 port.
+
+We can test it works with a curl
+
+#+BEGIN_SRC shell
+curl localhost:8888
+#+END_SRC
+
+#+RESULTS:
+| Hey there | this is kubia-stdin. Your IP is ::ffff:127.0.0.1. |
+
+
+beautiful.  Then, if we wanna change 'hey there' to 'howdy' or something else, we'd attach to the stdin contaioner
+
+(run external)
+#+BEGIN_SRC shell
+kubectl attach -i kubia-stdin
+#+END_SRC
+
+the -i tells kubectl to pass standard input to the container
+
+I did this and am now testing
+
+#+BEGIN_SRC shell
+curl localhost:8888
+#+END_SRC
+
+#+RESULTS:
+| oh shit | hey! | this is kubia-stdin. Your IP is ::ffff:127.0.0.1. |
+
+----
+- tags :: [[file:20200818114909-k8s.org][k8s]]  [[file:20200818114956-til.org][til]]

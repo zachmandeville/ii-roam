@@ -1,0 +1,27 @@
+#+title: checking pod conditions
+
+A pod has four conditions it moves through:
+
+- PodScheduled
+- Initialized
+- ContainersReady
+- Ready
+
+ They describe the lifecycle of a pod.  If a pod is 'READY'  then it is good to go and happy.  Otherwise, you'll wanna look into the conditions and manifest and see what's up.
+
+To check a pod's conditions you can run this command (substitute kubia with yr)
+
+#+BEGIN_SRC shell :var PODNAME='kubia'
+kubectl describe po $PODNAME | grep Conditions: -A5
+#+END_SRC
+
+#+RESULTS:
+| Conditions:     |        |
+| Type            | Status |
+| Initialized     | True   |
+| Ready           | True   |
+| ContainersReady | True   |
+| PodScheduled    | True   |
+
+----
+- tags ::  [[file:20200818114909-k8s.org][k8s]]  [[file:20200818114956-til.org][til]]
