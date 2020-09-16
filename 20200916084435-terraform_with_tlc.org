@@ -1,0 +1,17 @@
+#+title: terraform with tlc
+
+* Terraform
+A way to write code to instruct to yr infra service how you want your computer set up.  You can treat this like any other code, version control it, what have you.
+* Provider Block
+where you declare the provider you are trying to connect to, which is anything with an api.  you can terraform postgres or google calendar if you wanted to.
+* resource block
+* datasource block
+ability to declare objects you know would exist in the provider, but don't know their details yet...like when you want to apply a resource to a node, but don't know the node's name.  Instead youc an create a data block for nodes and pull the first one from there, or a random one from there.  this allows you to still declaratively specify what you want
+* terraform graph
+you just declare the state of resources that you want, organized however you see fit and is rational to you.  As long as the files end in .tf, terraform apply will pick it up.  There isn't a sense of order or imperative instruction.  instead, terraform creates a graph of what it needs to do based on everything that's been declared.  seems similar to a query planner, though the terraform graph is internal to terraform, and there wouldn't be the same sorta need for optimizations.
+* underlying code
+Terraform is written in Go and all the plugins and such are also written in Go, and you'll see similar object.oriented approaches to how the terraform templating works.
+* tfstate
+shows terraform's current understanding of yr infrastructure.  **Don't Commit this!** It'll commit far more details than you likely want.  You can share this on like an s3 bucket or other means though when you are needing to share state with collaborators, to make sure y'all are working with the same state.
+* ansible and terraform
+terraform is for the land and the sea, ansible is for the flora and fauna
